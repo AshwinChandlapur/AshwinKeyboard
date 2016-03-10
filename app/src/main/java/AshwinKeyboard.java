@@ -1,3 +1,5 @@
+
+
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -21,7 +23,7 @@ public class AshwinKeyboard extends InputMethodService
 
     public View OnCreateInputView(){
         kv=(KeyboardView) getLayoutInflater().inflate(R.layout.keyboard,null);
-        keyboard= new Keyboard(this, R.xml.keyboard);
+        keyboard= new Keyboard(this, R.xml.qwerty);
         kv.setKeyboard(keyboard);
         kv.setOnKeyboardActionListener(this);
         return kv;
@@ -54,7 +56,7 @@ public class AshwinKeyboard extends InputMethodService
     }
 
     @Override
-    public void onKey(int i, int[] ints) {
+    public void onKey(int i, int[] keyCodes) {
         InputConnection ic=getCurrentInputConnection();
         playClick(i);
             switch (i){
